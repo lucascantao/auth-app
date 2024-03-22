@@ -8,13 +8,22 @@
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link" href="login">Login</a>
+            <a class="nav-link" href="{{route('home')}}">Home</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="registration">Registration</a>
-          </li>
+          @auth
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('logout')}}">Logout</a>
+            </li>
+          @else
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('login')}}">Login</a>
+            </li>
           
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('registration')}}">Registration</a>
+            </li>
+          @endauth
         </ul>
       </div>
     </div>
